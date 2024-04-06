@@ -1,59 +1,39 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { addNote } from "../redux/actions";
+import { addNote } from "../action/action";
+import "./AddNote.css";
 
 const AddNote: any = (props: any) => {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
+  const [index, setIndex] = useState(0);
 
+  const addNewNote = () => {
+    dispatch(addNote(title, description, index));
+    setIndex(index + 1)
+    setTitle("");
+    setDescription("");
+  };
 
-  const AddNote = () => {
-    const [title, setTitle] = useState("");
-    const [description, setDescription] = useState("");
-    const dispatch = useDispatch();
-   
-    const addNewNote = () => {
-      dispatch(addNote(title, description));
-      setTitle("");
-      setDescription("");
-    };
+  const dispatch = useDispatch();
 
   return (
-    <div
-      style={{
-        padding: "8px",
-        display: "flex",
-        justifyContent: "center",
-      }}
-    >
-      <div
-        style={{
-          width: "50%",
-          height: "240px",
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          padding: "8px",
-          boxSizing: "border-box",
-        }}
-      >
+    <div className="wrapper">
+      <div className="inputContainer">
         <input
-          style={{ width: "50%", marginBottom: "4px" }}
+          className="input"
           onChange={(event) => setTitle(event.target.value)}
         ></input>
         <textarea
-          style={{
-            flex: 1,
-            width: "100%",
-            marginBottom: "4px",
-          }}
+          className="textarea"
           onChange={(event) => setDescription(event.target.value)}
           defaultValue="Default description"
-        />
-        <button style={{ height: "24px", width: "72px" }}>Add note</button>
+        ></textarea>
+        <button className="button" onClick={addNewNote}>
+          Add note
+        </button>
       </div>
     </div>
   );
 };
- 
 export default AddNote;

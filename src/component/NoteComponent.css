@@ -1,0 +1,22 @@
+.note {
+    display: inline-block;
+    width: 240px;
+    height: 240px;
+    background: #f5b042;
+    border-radius: 10px;
+    overflow-y: auto;
+    margin: 4px;
+    vertical-align: top;
+  }
+  
+  .notes-container {
+    white-space: nowrap;
+    display: inline-block;
+  }
+  
+  .notes-container:after {
+    content: "";
+    display: inline-block;
+    width: 100%;
+  }
+  

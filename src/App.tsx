@@ -3,7 +3,6 @@ import logo from './logo.svg';
 import './App.css';
 import NoteList from './component/NoteList';
 import AddNote from './component/AddNote';
-import RemoveNote from './component/RemoveNote';
 
 function App() {
   return (
@@ -12,7 +11,6 @@ function App() {
         <div className="Notes" style={{ display: "flex", justifyContent: "center", flexDirection: "column", width: "100%"}}>
           <NoteList/>
           <div><AddNote/></div>
-          <div><RemoveNote/></div>
         </div>
         <a
           className="App-link"
